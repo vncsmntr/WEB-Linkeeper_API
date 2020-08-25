@@ -1,0 +1,11 @@
+{
+  "name": "Linkeeper-server",
+  "version": "1.0.0",
+  "description": "Backend/Api for Linkeeper",
+  "main": "index.js",
+  "author": "Vinicius Monteiro",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
