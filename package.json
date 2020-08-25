@@ -5,7 +5,12 @@
   "main": "index.js",
   "author": "Vinicius Monteiro",
   "license": "MIT",
+  "scripts": {
+    "start": "nodemon src/index.js"
+  },
+  
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
   }
 }
