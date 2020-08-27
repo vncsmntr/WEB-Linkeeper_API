@@ -9,15 +9,14 @@ router.get('/login', (req, res) => {
   return res.json('Login')
 });
 
-router.get('/cadastro', async (req, res) => {
-  const email = 'vncsmntr@outlook.com';
-  const password = 'root'
-  
-  const hash = bcrypt.hashSync(password, saltRounds)
+router.get('/sign-up', async (req, res) => {
+  const { email, password } = req.body;
+  const account = await Account.findOne({where: {email}});
+  if(account) return res.json('Esta conta já existe');
+  const hash = bcrypt.hashSync(password, saltRounds);
+  const newAccount = await Account.create({email, password: hash});
 
-  const result = await Account.create({email, password: hash});
-
-  return res.json(result)
+  return res.json(newAccount);
 });
 
 module.exports = router;

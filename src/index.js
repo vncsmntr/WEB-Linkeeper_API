@@ -1,18 +1,20 @@
-const express = require('express');
-const authController = require('./controllers/auth');
-const db = require('./models');
-
+const express = require("express");
+const authController = require("./controllers/auth");
+const db = require("./models");
 
 const app = express();
-app.use('/auth', authController);
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-app.get('/', (req, res) => {
-  return res.json('API Online')
+app.use("/auth", authController);
+
+app.get("/", (req, res) => {
+  return res.json("API Online");
 });
 
-db.sequelize.sync().then( ()=>{
+db.sequelize.sync().then(() => {
   app.listen(3001, () => {
-    console.log('Server Online')
+    console.log("Server Online");
   });
 });
