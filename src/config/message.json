@@ -1,0 +1,15 @@
+{
+  "response.json_ok": "Requisição realizada com sucesso",
+  "response.json_BadRequest": "Opa, parece que algo deu errado",
+  "response.json_NotFound": "Não foi possivel encontrar seu pedido",
+  "response.json_ServerError": "Desta vez a culpa é nossa, tente novamente em alguns instantes",
+  "response.json_Unauthorized": "Você não possui acesso",
+
+  "account.signup.email_exists": "Email ja cadastrado.",
+  "account.signup.success": "Cadastrado com sucesso.",
+  "account.signup.password_confirmation.any.required": "Confirmação de senha é obrigatorio.",
+  "account.signup.password.string.empty": "O campo de senha é obrigatorio.",
+  "account.signup.email.string.empty": "O campo de email é obrigatorio.",
+  "account.signup.email.string.email": "Este email não é valido.",
+  "account.signup.password.string.pattern.base": "A senha precisa ter de 8 a 30 caracteres."
+}
