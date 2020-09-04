@@ -1,20 +1,24 @@
 module.exports = (sequelize, DataTypes) => {
-  const Account = sequelize.define('Account', {
-    email : {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    password : {
-      type: DataTypes.STRING,
-      allowNull: false,
-    }
-  });
+    const Account = sequelize.define('Account', {
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false,
+        }
+    });
 
-  Account.prototype.toJSON = function() {
-    const values = { ...this.get() };
-    delete values.password;
-    return values;
-  };
+    Account.associate = (models) => {
+        Account.hasMany(models.Link, { foreignKey: 'accountId' })
+    };
 
-  return Account;
+    Account.prototype.toJSON = function() {
+        const values = {...this.get() };
+        delete values.password;
+        return values;
+    };
+
+    return Account;
 };
