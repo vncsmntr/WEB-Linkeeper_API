@@ -39,7 +39,8 @@ router.post("/sign-in", accountSignIn, async(req, res) => {
         id: account.id
     });
     const refreshToken = generateRefreshJwt({
-        id: account.id
+        id: account.id,
+        version: account.jwtVersion
     });
 
     return res.jsonOK(account, getMessage("account.signin.success"), {
@@ -69,7 +70,8 @@ router.post("/sign-up", accountSignUp, async(req, res) => {
         id: newAccount.id
     });
     const refreshToken = generateRefreshJwt({
-        id: newAccount.id
+        id: newAccount.id,
+        version: newAccount.jwtVersion
     });
 
     return res.jsonOK(newAccount, getMessage("account.signup.success"), {
