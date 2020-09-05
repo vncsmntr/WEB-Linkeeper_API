@@ -1,5 +1,6 @@
 // ** Importações
 const express = require("express");
+const cors = require("cors");
 const authController = require("./controllers/auth");
 const linkController = require('./controllers/link')
 const db = require("./models");
@@ -8,10 +9,13 @@ const checkJwt = require("./middlewares/jwt");
 // ** app se refere ao express
 const app = express();
 
+app.use(cors());
 app.use(response);
 app.use(checkJwt);
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({
+    extended: true
+}));
 
 app.use("/auth", authController);
 app.use('/link', linkController)
